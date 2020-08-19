@@ -19,8 +19,8 @@ export class MyFullcalendarComponent implements OnInit {
 
   ngOnInit() {
     const nowDate = new Date();
-    const yearMonth = nowDate.getUTCFullYear() + '-' + (nowDate.getUTCMonth() + 1);
-    let myday = '2020-08-20'
+    const yearMonth = nowDate.getUTCFullYear() + '-0' + (nowDate.getUTCMonth() + 1);
+    const myday = '2020-08-20';
     this.calendarOptions = {
       plugins: [dayGridPlugin, interactionPlugin],
       initialView: 'dayGridMonth',
@@ -41,7 +41,7 @@ export class MyFullcalendarComponent implements OnInit {
           end: '2020-08-13',
         },
         {
-          title: 'Vacation', start: myday, end: '2020-08-22'
+          title: 'Vacation', start: myday, end: '2020-08-22',
         },
         {
           title: 'Sick Day', date: '2020-08-22',
@@ -84,9 +84,9 @@ export class MyFullcalendarComponent implements OnInit {
   }
 
   updateEvents() {
-    let nowDate = new Date();
-    let yearMonth = nowDate.getUTCFullYear() + '-0' + (nowDate.getUTCMonth() + 1);
-    let startDate = yearMonth + '-23';
+    const nowDate = new Date();
+    const yearMonth = nowDate.getUTCFullYear() + '-0' + (nowDate.getUTCMonth() + 1);
+    const startDate = yearMonth + '-23';
     alert(startDate);
     this.calendarOptions.events = [{
       title: 'Production Final',
