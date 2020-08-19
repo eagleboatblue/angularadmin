@@ -14,6 +14,7 @@ import {
   NbSpinnerModule,
   NbTabsetModule,
 } from '@nebular/theme';
+
 import { FullCalendarModule } from '@fullcalendar/angular';
 
 import { ThemeModule } from '../../@theme/theme.module';
@@ -87,4 +88,5 @@ const MODULES = [
     ...COMPONENTS,
   ],
 })
+
 export class ExtraComponentsModule { }
