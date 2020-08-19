@@ -6,6 +6,7 @@ import { AlertComponent } from './alert/alert.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { MyFullcalendarComponent } from './fullcalendar/myfullcalendar.component';
 import { ChatComponent } from './chat/chat.component';
 import { CalendarKitFullCalendarShowcaseComponent } from './calendar-kit/calendar-kit.component';
 
@@ -16,6 +17,10 @@ const routes: Routes = [{
     {
       path: 'calendar',
       component: CalendarComponent,
+    },
+    {
+      path: 'fullcalendar',
+      component: MyFullcalendarComponent,
     },
     {
       path: 'progress-bar',

@@ -123,6 +123,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/extra-components/calendar',
       },
       {
+        title: 'Fullcalendar',
+        link: '/pages/extra-components/fullcalendar',
+      },
+      {
         title: 'Progress Bar',
         link: '/pages/extra-components/progress-bar',
       },

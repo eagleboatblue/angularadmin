@@ -14,6 +14,7 @@ import {
   NbSpinnerModule,
   NbTabsetModule,
 } from '@nebular/theme';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { ExtraComponentsRoutingModule } from './extra-components-routing.module';
@@ -32,6 +33,7 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { AlertComponent } from './alert/alert.component';
 import { ChatComponent } from './chat/chat.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { MyFullcalendarComponent } from './fullcalendar/myfullcalendar.component';
 import { DayCellComponent } from './calendar/day-cell/day-cell.component';
 import { NebularFormInputsComponent } from './form-inputs/nebular-form-inputs.component';
 import { NebularSelectComponent } from './form-inputs/nebular-select/nebular-select.component';
@@ -55,6 +57,7 @@ const COMPONENTS = [
   NebularSelectComponent,
   CalendarKitFullCalendarShowcaseComponent,
   CalendarKitMonthCellComponent,
+  MyFullcalendarComponent,
 ];
 
 const MODULES = [
@@ -73,6 +76,7 @@ const MODULES = [
   NbTabsetModule,
   ThemeModule,
   ExtraComponentsRoutingModule,
+  FullCalendarModule,
 ];
 
 @NgModule({
