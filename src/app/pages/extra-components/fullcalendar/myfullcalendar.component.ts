@@ -53,7 +53,7 @@ export class MyFullcalendarComponent implements OnInit {
   }
 
   toggleWeekends() {
-    this.calendarOptions.weekends = !this.calendarOptions.weekends // toggle the boolean!
+    this.calendarOptions.weekends = !this.calendarOptions.weekends; // toggle the boolean!
   }
 
   handleDateClick(arg) {
