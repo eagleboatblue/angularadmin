@@ -14,6 +14,7 @@ export class MyFullcalendarComponent implements OnInit {
 
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
+    weekends: true,
     dateClick: this.handleDateClick.bind(this),
     events: [{
       title: 'Vacation', date: '2020-08-21',
@@ -51,9 +52,13 @@ export class MyFullcalendarComponent implements OnInit {
     };
   }
 
+  toggleWeekends() {
+    this.calendarOptions.weekends = !this.calendarOptions.weekends // toggle the boolean!
+  }
+
   handleDateClick(arg) {
 //    console.log('myfullcalendar.component.ts>hendleDateClick()' + arg);
-    alert('clicked a date cell!');
+    alert('clicked a date cell!' + arg.dateStr);
   }
 
   handleEventClick(arg) {
