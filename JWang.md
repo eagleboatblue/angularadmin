@@ -8,3 +8,6 @@ git remote set-url origin https://github.com/eagleboatblue/angularadmin.git
 npm install --save @fullcalendar/angular @fullcalendar/daygrid @fullcalendar/interaction
 npm install --save @fullcalendar/core @fullcalendar/resource-timeline
 ```
+
+## Display Events
+[Full Calendar Event display](https://fullcalendar.io/docs/event-display)

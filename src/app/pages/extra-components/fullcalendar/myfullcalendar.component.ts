@@ -12,27 +12,20 @@ import { FullCalendarComponent } from '@fullcalendar/angular';
 
 export class MyFullcalendarComponent implements OnInit {
 
-  calendarOptions: CalendarOptions = {
-    initialView: 'dayGridMonth',
-    weekends: true,
-    dateClick: this.handleDateClick.bind(this),
-    events: [{
-      title: 'Vacation', date: '2020-08-21',
-    },
-    {
-      title: 'Sick Day', date: '2020-08-22',
-
-    },
-    ],
-  };
+  calendarOptions: CalendarOptions;
 
   eventsModel: any;
   @ViewChild('fullcalendar') fullcalendar: FullCalendarComponent;
 
   ngOnInit() {
+    const nowDate = new Date();
+    const yearMonth = nowDate.getUTCFullYear() + '-' + (nowDate.getUTCMonth() + 1);
+    let myday = '2020-08-20'
     this.calendarOptions = {
       plugins: [dayGridPlugin, interactionPlugin],
+      initialView: 'dayGridMonth',
       editable: true,
+      weekends: true,
       customButtons: {
         myCustomButton: {
           text: 'custom!',
@@ -41,10 +34,23 @@ export class MyFullcalendarComponent implements OnInit {
           },
         },
       },
+      events: [
+        {
+          title: 'Updaten Event',
+          start: '2020-08-08',
+          end: '2020-08-13',
+        },
+        {
+          title: 'Vacation', start: myday, end: '2020-08-22'
+        },
+        {
+          title: 'Sick Day', date: '2020-08-22',
+        },
+      ],
       headerToolbar: {
         left: 'prev,next today myCustomButton',
         center: 'title',
-        right: 'dayGridMonth',
+        right: 'dayGridMonth dayGridWeek',
       },
       dateClick: this.handleDateClick.bind(this),
       eventClick: this.handleEventClick.bind(this),
@@ -57,16 +63,16 @@ export class MyFullcalendarComponent implements OnInit {
   }
 
   handleDateClick(arg) {
-//    console.log('myfullcalendar.component.ts>hendleDateClick()' + arg);
+    //    console.log('myfullcalendar.component.ts>hendleDateClick()' + arg);
     alert('clicked a date cell!' + arg.dateStr);
   }
 
   handleEventClick(arg) {
-//    console.log(arg);
+    //    console.log(arg);
   }
 
   handleEventDragStop(arg) {
-//    console.log(arg);
+    //    console.log(arg);
   }
 
   updateHeader() {
@@ -78,13 +84,14 @@ export class MyFullcalendarComponent implements OnInit {
   }
 
   updateEvents() {
-    const nowDate = new Date();
-    const yearMonth = nowDate.getUTCFullYear() + '-' + (nowDate.getUTCMonth() + 1);
-
+    let nowDate = new Date();
+    let yearMonth = nowDate.getUTCFullYear() + '-0' + (nowDate.getUTCMonth() + 1);
+    let startDate = yearMonth + '-23';
+    alert(startDate);
     this.calendarOptions.events = [{
-      title: 'Updaten Event',
-      start: yearMonth + '-08',
-      end: yearMonth + '-10',
+      title: 'Production Final',
+      start: startDate,
+      end: '2020-08-26',
     }];
   }
 
