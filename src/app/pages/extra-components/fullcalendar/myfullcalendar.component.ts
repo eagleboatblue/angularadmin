@@ -5,7 +5,7 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { FullCalendarComponent } from '@fullcalendar/angular';
 
 @Component({
-  selector: 'my-fullcalendar',
+  selector: 'ngx-fullcalendar',
   templateUrl: 'myfullcalendar.component.html',
   styleUrls: ['myfullcalendar.component.scss'],
 })
@@ -38,7 +38,7 @@ export class MyFullcalendarComponent implements OnInit {
           click: function () {
             alert('clicked the custom button!');
           },
-        }
+        },
       },
       headerToolbar: {
         left: 'prev,next today myCustomButton',
@@ -68,7 +68,7 @@ export class MyFullcalendarComponent implements OnInit {
     this.calendarOptions.headerToolbar = {
       left: 'prev,next myCustomButton',
       center: 'title',
-      right: ''
+      right: '',
     };
   }
 
@@ -79,7 +79,7 @@ export class MyFullcalendarComponent implements OnInit {
     this.calendarOptions.events = [{
       title: 'Updaten Event',
       start: yearMonth + '-08',
-      end: yearMonth + '-10'
+      end: yearMonth + '-10',
     }];
   }
 
