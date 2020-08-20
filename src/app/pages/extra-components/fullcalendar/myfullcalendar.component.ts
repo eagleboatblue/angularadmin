@@ -3,6 +3,8 @@ import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { FullCalendarComponent } from '@fullcalendar/angular';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'ngx-fullcalendar',
@@ -11,8 +13,11 @@ import { FullCalendarComponent } from '@fullcalendar/angular';
 })
 
 export class MyFullcalendarComponent implements OnInit {
+  constructor(private http: HttpClient) {
 
+  }
   calendarOptions: CalendarOptions;
+  loadedEvents=[];
 
   eventsModel: any;
   @ViewChild('fullcalendar') fullcalendar: FullCalendarComponent;
@@ -58,6 +63,18 @@ export class MyFullcalendarComponent implements OnInit {
     };
   }
 
+  private fetchEvents() {
+    this.http.get("http://localhost:5000/events")
+      .subscribe(events => {        
+        events = events['events'];
+        let newevents = [];
+        for(const key in events){
+          newevents.push(events[key]);
+        }
+        this.calendarOptions.events = newevents;
+      });
+  }
+
   toggleWeekends() {
     this.calendarOptions.weekends = !this.calendarOptions.weekends; // toggle the boolean!
   }
@@ -84,15 +101,7 @@ export class MyFullcalendarComponent implements OnInit {
   }
 
   updateEvents() {
-    const nowDate = new Date();
-    const yearMonth = nowDate.getUTCFullYear() + '-0' + (nowDate.getUTCMonth() + 1);
-    const startDate = yearMonth + '-23';
-    alert(startDate);
-    this.calendarOptions.events = [{
-      title: 'Production Final',
-      start: startDate,
-      end: yearMonth + '-26',
-    }];
+    this.fetchEvents();
   }
 
 }

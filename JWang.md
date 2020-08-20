@@ -1,3 +1,6 @@
+# Angular Admin Learning Notes
+
+## Installation
 ```
 git clone https://github.com/eagleboatblue/angularadmin.git
 cd ~/workspace/angularadmin
@@ -9,5 +12,16 @@ npm install --save @fullcalendar/angular @fullcalendar/daygrid @fullcalendar/int
 npm install --save @fullcalendar/core @fullcalendar/resource-timeline
 ```
 
-## Display Events
+## Check @angular version
+
+```
+grep @angular/core package.json
+```
+
+## Generate new component
+```
+ng generate component xyz
+```
+
+## Reference to Display Events
 [Full Calendar Event display](https://fullcalendar.io/docs/event-display)
