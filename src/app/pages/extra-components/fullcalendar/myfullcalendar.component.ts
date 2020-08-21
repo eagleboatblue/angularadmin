@@ -4,7 +4,6 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { FullCalendarComponent } from '@fullcalendar/angular';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'ngx-fullcalendar',
@@ -17,7 +16,7 @@ export class MyFullcalendarComponent implements OnInit {
 
   }
   calendarOptions: CalendarOptions;
-  loadedEvents=[];
+  loadedEvents = [];
 
   eventsModel: any;
   @ViewChild('fullcalendar') fullcalendar: FullCalendarComponent;
@@ -64,12 +63,14 @@ export class MyFullcalendarComponent implements OnInit {
   }
 
   private fetchEvents() {
-    this.http.get("http://localhost:5000/events")
-      .subscribe(events => {        
+    this.http.get('http://localhost:5000/events')
+      .subscribe(events => {
         events = events['events'];
-        let newevents = [];
-        for(const key in events){
-          newevents.push(events[key]);
+        const newevents = [];
+        for (const key in events) {
+          if (events.hasOwnProperty(key)) {
+            newevents.push(events[key]);
+          }
         }
         this.calendarOptions.events = newevents;
       });
